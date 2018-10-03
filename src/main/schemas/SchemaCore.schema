@@ -1,0 +1,41 @@
+import SchemaBase
+
+schema ISA extends CompoundType {
+  specVersions: List(0,inf)[String]
+  base: String
+  m: Boolean
+  a: Boolean
+  f: Boolean
+  d: Boolean
+  c: Boolean
+  u: Boolean
+  s: List(0,inf)[String]
+}
+
+schema MulDiv extends Component {
+  multiplyLatencyCycles: Int
+  mulUnroll: Int
+  divideLatencyCycles: Int
+  divUnroll: Int
+}
+
+schema PMP extends CompoundType {
+  nPMPs: Int
+  pmpGranularity: Int
+}
+
+schema Pipeline extends Component {
+  isa: ISA
+  mulDiv: MulDiv
+  hartId: Int
+  nLocalInterrupts: Int
+  hasBasicCounters: Boolean
+  nPerfCounters: Int
+  hasVectoredInterrupts: Boolean // need to ask if the Caboose docs need this var
+  pmp: PMP
+  interruptLatency: Int
+  trace: Boolean
+}
+
+schema Core extends Pipeline
+

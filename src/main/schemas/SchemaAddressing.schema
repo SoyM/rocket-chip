@@ -1,0 +1,61 @@
+import SchemaBase
+
+schema AddressRange extends CompoundType {
+  base: Int
+  size: Int
+}
+
+// Permissions are for memory regions
+schema Permissions extends ComoundType {
+  readable: Boolean
+  writeable: Boolean
+  executable: Boolean
+}
+
+schema BitRange extends CompoundType {
+  lower: Int
+  upper: Int
+}
+
+schema RegisterField extends CompoundType {
+  name : String
+  description: String
+  byteOffset: Int
+  bits: BitRange //   BitRange[bitOffset + bitWidth - 1 : bitOffset ]
+  accessType: String
+}
+
+schema RegisterGroup extends CompoundType {
+  name: String
+  description: String
+  registerFields: List(1,inf)[RegisterField]
+}
+
+schema RegisterMap extends CompoundType {
+  name: String
+  description: String
+  baseAddress: AddressRange
+  groups: List(1,inf)[RegisterGroup]
+}
+
+schema MemoryRegion extends CompoundType {
+  name: String
+  description: String
+  addressRange: AddressRange
+  permissions: Permissions
+}
+
+schema MemoryMap extends CompoundType {
+  name: String
+  description: String
+  memoryRegions: List(1,inf)[MemoryRegion]
+}
+
+schema MemorySection extends CompooundType {
+  description: String
+  addressRange: AddressRange
+}
+
+schema MemorySections extends Compoundtype{
+  sections: List(0, inf)[MemorySection]
+}

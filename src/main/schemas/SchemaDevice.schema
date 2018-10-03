@@ -1,0 +1,10 @@
+import SchemaAddressing
+
+schema Device extends Component {
+  memoryMap: MemoryMap
+  registerMap: RegisterMap
+}
+
+schema OffComplexDevice extends Device
+
+schema OnComplexDevice extends Device

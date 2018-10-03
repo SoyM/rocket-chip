@@ -1,0 +1,3 @@
+import SchemaCoreComplex
+
+schema CabooseCoreComplex extends CoreComplex

@@ -1,0 +1,12 @@
+import SchemaDevice
+
+schema Memory extends OnComplexDevice {
+  sramName: String
+  description: String
+  addressWidth: Int
+  dataWidth: Int
+  depth: Int
+  writeMaskGranularity: Int
+}
+
+schema TIM extends Memory

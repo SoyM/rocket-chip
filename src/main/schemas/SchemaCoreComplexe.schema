@@ -1,0 +1,8 @@
+import SchemaBase
+
+schema CoreComplex extends Component {
+  memorySections: MemorySections // should containeras be used for list of things so that the list has a type?
+  cores: List(1,inf)[Core]
+  devices: List(1,inf)[Device]  // {system,memory,peripheral} plic clic clint debug devices
+  ports: List(1,inf)[Port] // front port
+}

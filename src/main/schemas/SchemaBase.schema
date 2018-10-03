@@ -1,0 +1,13 @@
+
+
+schema CompoundType extends Type
+
+schema Component extends CompoundType {
+  name: String
+  specVersions: List(0,inf)[String]
+}
+
+schema SchemaVersion extends Type {
+  version: String
+  date: String
+}

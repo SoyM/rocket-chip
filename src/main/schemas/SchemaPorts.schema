@@ -1,0 +1,17 @@
+import SchemaDevice
+
+schema Port extends Component {
+  width: Int
+  protocol: Protocol
+}
+
+schema ComplexInboundPort extends Port
+
+schema ComplexOutboundPort extends Port with OffComplexDevice {
+  size: Int
+}
+
+schema FrontPort      extends ComplexInboundPort
+schema MemoryPort     extends ComplexOutboundPort
+schema PeripheralPort extends ComplexOutboundPort
+schema SystemPort     extends ComplexOutboundPort

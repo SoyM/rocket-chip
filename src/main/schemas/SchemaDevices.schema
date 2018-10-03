@@ -1,0 +1,12 @@
+import SchemaDevice
+
+schema CLIC extends OnComplexDevice {
+  nInterrupts: Int
+  clicIntConfigSize: Int
+}
+
+schema Debug extends OnComplexDevice {
+  nAbstractDataWords: Int
+  nProgramBufferWords: Int
+  nBreakpoints: Int
+}

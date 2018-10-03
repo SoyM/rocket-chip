@@ -1,0 +1,6 @@
+import SchemaCore
+
+schema CabooseCore extends Pipeline {
+  hasSeparateInstructionPort: Boolean
+  hasPipelineWriteBack: Boolean
+}
